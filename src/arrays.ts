@@ -12,6 +12,10 @@ export default function shallowEqualArrays(
     return false;
   }
 
+  if (typeof arrA !== "object" || typeof arrB !== "object") {
+    return false;
+  }
+
   const len = arrA.length;
 
   if (arrB.length !== len) {

@@ -147,11 +147,11 @@ describe("shallowEqual on mixed array/objects", () => {
 });
 
 describe("shallowEqual on primitive values of any type", () => {
-  it("should return false", () => {
+  it("should act correctly", () => {
     expect(shallowEqual<any>(1, 2)).toBe(false);
-    expect(shallowEqual<any>(1, 1)).toBe(false);
+    expect(shallowEqual<any>(1, 1)).toBe(true);
     expect(shallowEqual<any>("boris", "johnson")).toBe(false);
-    expect(shallowEqual<any>("boris", "boris")).toBe(false);
+    expect(shallowEqual<any>("boris", "boris")).toBe(true);
   });
 });
 
@@ -162,11 +162,11 @@ describe("shallowEqualObjects", () => {
     });
   });
 
-  it("should return false for primitive values of any type", () => {
+  it("should act correctly for primitive values of any type", () => {
     expect(shallowEqualObjects(1 as any, 2 as any)).toBe(false);
-    expect(shallowEqualObjects(1 as any, 1 as any)).toBe(false);
+    expect(shallowEqualObjects(1 as any, 1 as any)).toBe(true);
     expect(shallowEqualObjects("boris" as any, "johnson" as any)).toBe(false);
-    expect(shallowEqualObjects("boris" as any, "boris" as any)).toBe(false);
+    expect(shallowEqualObjects("boris" as any, "boris" as any)).toBe(true);
   });
 });
 
@@ -177,10 +177,10 @@ describe("shallowEqualArrays", () => {
     });
   });
 
-  it("should return false for primitive values of any type", () => {
+  it("should act correctly for primitive values of any type", () => {
     expect(shallowEqualArrays(1 as any, 2 as any)).toBe(false);
-    expect(shallowEqualArrays(1 as any, 1 as any)).toBe(false);
+    expect(shallowEqualArrays(1 as any, 1 as any)).toBe(true);
     expect(shallowEqualArrays("boris" as any, "johnson" as any)).toBe(false);
-    expect(shallowEqualArrays("boris" as any, "boris" as any)).toBe(false);
+    expect(shallowEqualArrays("boris" as any, "boris" as any)).toBe(true);
   });
 });

@@ -12,6 +12,10 @@ export default function shallowEqualObjects<T>(
     return false;
   }
 
+  if (typeof objA !== "object" || typeof objB !== "object") {
+    return false;
+  }
+
   const aKeys = Object.keys(objA);
   const bKeys = Object.keys(objB);
   const len = aKeys.length;
